@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Classes</title>
+    <link rel="stylesheet" th:href="@{/css/jolie.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Liste des Classes</h1>
+    <a class="add-btn" th:href="@{/classes/new}">Ajouter une nouvelle classe</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Secteur</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="classe : ${classes}">
+            <td th:text="${classe.id}"></td>
+            <td th:text="${classe.name}"></td>
+            <td th:text="${classe.description}"></td>
+            <td th:text="${classe.sectorName}"></td>
+            <td>
+                <a th:href="@{/classes/{id}(id=${classe.id})}">Voir</a>
+                <a th:href="@{/classes/edit/{id}(id=${classe.id})}">Modifier</a>
+                <a th:href="@{/classes/delete/{id}(id=${classe.id})}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette classe ?');">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

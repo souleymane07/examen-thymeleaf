@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Secteur</title>
+    <link rel="stylesheet" th:href="@{/css/jolie.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Ajouter/Modifier un Secteur</h1>
+    <form th:action="@{/sectors/save}" th:object="${sector}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="name">Nom du secteur:</label>
+        <input type="text" id="name" th:field="*{name}">
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+        <button type="submit">Sauvegarder</button>
+    </form>
+</div>
+</body>
+</html>

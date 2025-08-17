@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Secteurs</title>
+    <link rel="stylesheet" th:href="@{/css/jolie.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Liste des Secteurs</h1>
+    <a class="add-btn" th:href="@{/sectors/new}">Ajouter un nouveau secteur</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sector : ${sectors}">
+            <td th:text="${sector.id}"></td>
+            <td th:text="${sector.name}"></td>
+            <td>
+                <a th:href="@{/sectors/{id}(id=${sector.id})}">Voir</a>
+                <a th:href="@{/sectors/edit/{id}(id=${sector.id})}">Modifier</a>
+                <a th:href="@{/sectors/delete/{id}(id=${sector.id})}"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce secteur ?');">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

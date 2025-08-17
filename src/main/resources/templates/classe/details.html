@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la Classe</title>
+    <link rel="stylesheet" th:href="@{/css/jolie.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Détails de la Classe</h1>
+
+    <p class="detail">ID : <span th:text="${classe.id}"></span></p>
+    <p class="detail">Nom : <span th:text="${classe.name}"></span></p>
+    <p class="detail">Description : <span th:text="${classe.description}"></span></p>
+    <p class="detail">Secteur : <span th:text="${classe.sectorName}"></span></p>
+
+    <a class="add-btn" th:href="@{/classes}">Retour à la liste des classes</a>
+</div>
+</body>
+</html>

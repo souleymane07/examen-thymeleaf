@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails du Secteur</title>
+    <link rel="stylesheet" th:href="@{/css/jolie.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Détails du Secteur</h1>
+
+    <p class="detail">ID : <span th:text="${sector.id}"></span></p>
+    <p class="detail">Nom : <span th:text="${sector.name}"></span></p>
+
+    <h3>Classes associées</h3>
+    <div th:if="${not #lists.isEmpty(sector.classes)}">
+        <ul>
+            <li th:each="classe : ${sector.classes}">
+                <span th:text="${classe.name}"></span>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${#lists.isEmpty(sector.classes)}">
+        <p>Aucune classe associée à ce secteur.</p>
+    </div>
+
+    <a class="add-btn" th:href="@{/sectors}">Retour à la liste des secteurs</a>
+</div>
+</body>
+</html>
